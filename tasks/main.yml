@@ -13,6 +13,14 @@
   yum:
     name: "{{ mongodb_package_name }}"
     state: present
+  register: mongodb_package_installed
+
+- name: mongodb | Start service MongoDB
+  service:
+    name: "{{ mongodb_service_name }}"
+    state: started
+    enabled: yes
+  when: mongodb_package_installed.changed
 
 - name: mongodb | MongoDB configured
   template:
