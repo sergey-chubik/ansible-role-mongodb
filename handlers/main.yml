@@ -1,2 +1,7 @@
 ---
 # handlers file for mongodb
+- name: restart {{ mongodb_service_name }}
+  service:
+    name: "{{ mongodb_service_name }}"
+    state: restarted
+    enabled: yes

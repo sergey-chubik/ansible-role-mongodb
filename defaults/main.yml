@@ -1,6 +1,9 @@
 ---
 # defaults file for mongodb
-graylog_mongodb_version:     4.4
-graylog_mongodb_redhat_repo: "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ graylog_mongodb_version }}/x86_64/"
-graylog_mongodb_redhat_key:  "https://www.mongodb.org/static/pgp/server-{{ graylog_mongodb_version }}.asc"
-graylog_mongodb_bind_port:   27017
+mongodb_version:      4.4
+mongodb_redhat_repo:  "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ mongodb_version }}/x86_64/"
+mongodb_redhat_key:   "https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc"
+mongodb_bind_ip:      127.0.0.1
+mongodb_bind_port:    27017
+mongodb_package_name: mongodb-org
+mongodb_service_name: mongod

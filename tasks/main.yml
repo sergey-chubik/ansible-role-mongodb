@@ -1,35 +1,24 @@
 ---
 # tasks file for mongodb
-- name: "Repositories should be updated"
+- name: mongodb | Repositories updated
   yum_repository:
-    name: "mongodb-org"
+    name: "{{ mongodb_package_name }}"
     description: "MongoDB Repository"
-    baseurl: "{{ graylog_mongodb_redhat_repo }}"
-    gpgkey: "{{ graylog_mongodb_redhat_key }}"
-    gpgcheck: "yes"
-    enabled: "yes"
+    baseurl: "{{ mongodb_redhat_repo }}"
+    gpgkey: "{{ mongodb_redhat_key }}"
+    gpgcheck: yes
+    enabled: yes
 
-- name: "MongoDB should be installed"
+- name: mongodb | MongoDB installed
   yum:
-    name: "mongodb-org"
-    state: "present"
+    name: "{{ mongodb_package_name }}"
+    state: present
 
-
-
-# - name: "MongoDB should be configured"
-#   template:
-#     src: "mongodb.conf.j2"
-#     dest: "/etc/mongod.conf"
-#     owner: "root"
-#     group: "root"
-#     mode: 0644
-#   notify: "restart mongod"
-#
-#
-# - name: "SELinux port access should be granted for MongoDB"
-#   seport:
-#     ports: "{{graylog_mongodb_bind_port}}"
-#     proto: "tcp"
-#     setype: "mongod_port_t"
-#     state: "present"
-#   when: ansible_selinux.status == "enabled"
+- name: mongodb | MongoDB configured
+  template:
+    src: mongodb.conf.j2
+    dest: /etc/mongod.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart "{{ mongodb_service_name }}"
