@@ -25,8 +25,8 @@ processManagement:
 
 # network interfaces
 net:
-  port: {{ graylog_mongodb_bind_port }}
-  bindIp: {{ graylog_mongodb_bind_ip }}  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the net.bindIpAll setting.
+  port: {{ mongodb_bind_port }}
+  bindIp: {{ mongodb_bind_ip }}  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the net.bindIpAll setting.
 
 
 #security:
