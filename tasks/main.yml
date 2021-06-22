@@ -24,7 +24,7 @@
 
 - name: mongodb | MongoDB configured
   template:
-    src: mongodb.conf.j2
+    src: "{{ mongodb_template_path }}/mongodb.conf.j2"
     dest: /etc/mongod.conf
     owner: root
     group: root

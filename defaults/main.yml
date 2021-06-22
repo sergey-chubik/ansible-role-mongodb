@@ -7,3 +7,4 @@ mongodb_bind_ip:      127.0.0.1
 mongodb_bind_port:    27017
 mongodb_package_name: mongodb-org
 mongodb_service_name: mongod
+mongodb_template_path: "{{ role_path }}/templates"
